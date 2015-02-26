@@ -7,6 +7,6 @@
     "author": "Han Li <vcfvct@gmail.com> (http://vcfvct.wordpress.com)",
     "license": "MIT",
     "engines": {
-        "brackets": ">=1.1.0"
+        "brackets": ">=0.36.0"
     }
 }
