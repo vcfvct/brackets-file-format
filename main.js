@@ -18,7 +18,9 @@ define(function (require, exports, module) {
     // home grow format lib
     var formatter = require("lib/format-helper");
 
-    var supportedFile = {xml:true,css:true,sql:true,json:true};
+    // file extension <-> format method to be used MAP
+    var supportedFile = {xml:'xml',css:'css',sql:'sql',json:'json',html:'xml'};
+    // currently supported actions.
     var supportedAction = {INDENT:'indent', FORMAT:"format", MINIFY:"minify"};
 
     CommandManager.register("Auto Indent", INDENT_COMMAND_ID, autoIndent);
@@ -55,10 +57,14 @@ define(function (require, exports, module) {
                 }
                 break;
             case supportedAction.FORMAT:
-                doc.setValue(formatter.doFormat(doc.getValue(), {method: extention}));
+                if(supportedFile[extention]){
+                    doc.setValue(formatter.doFormat(doc.getValue(), {method:supportedFile[extention]}));
+                }
                 break;
             case supportedAction.MINIFY:
-                doc.setValue(formatter.doFormat(doc.getValue(), {method: extention+'min'}));
+                if(supportedFile[extention]){
+                    doc.setValue(formatter.doFormat(doc.getValue(), {method:supportedFile[extention] + 'min'}));
+                }
                 break;
             default:
                 //do nothing
