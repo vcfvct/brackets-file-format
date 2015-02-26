@@ -1,0 +1,12 @@
+{
+    "name": "vcfvct.brackets-file-format",
+    "title": "Brackets File Format",
+    "description": "Indent all file types. Format or minify css/sql/xml/json file",
+    "homepage": "https://github.com/vcfvct/brackets-file-format",
+    "version": "1.0.0",
+    "author": "Han Li <vcfvct@gmail.com> (http://vcfvct.wordpress.com)",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=1.1.0"
+    }
+}
