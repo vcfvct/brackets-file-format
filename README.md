@@ -1,7 +1,7 @@
-brackets-fie-format
+brackets-file-format
 ============================
 
-This extension adds re-indent and auto-formatting function to certain file type Adobe Brackets.
+This extension adds re-indent and auto-formatting function to certain file types Adobe Brackets.
 
 You can re-indent all file types by using "Edit > Auto Indent" menu or "Ctrl+Shift+I" key.
 
