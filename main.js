@@ -1,6 +1,3 @@
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets */
-
 define(function (require, exports, module) {
     "use strict";
 
@@ -12,12 +9,19 @@ define(function (require, exports, module) {
         DocumentManager   = brackets.getModule("document/DocumentManager"),
         FileUtils = brackets.getModule("file/FileUtils"),
         Menus           = brackets.getModule("command/Menus"),
+
         INDENT_COMMAND_ID      = "vcfvct.formatter.indent",
         FORMAT_COMMAND_ID      = "vcfvct.formatter.format",
         MIN_COMMAND_ID      = "vcfvct.formatter.min",
+        PRETTY_XML_COMMAND_ID      = "vcfvct.formatter.pretty.xml",
+        PRETTY_JSON_COMMAND_ID      = "vcfvct.formatter.pretty.json",
+
         INDENT_KEY = "Ctrl-Shift-I",
         FORMAT_KEY = "Ctrl-Shift-F",
+        PRETTY_XML_KEY = "Ctrl-Alt-Shift-B",
+        PRETTY_JSON_KEY = "Ctrl-Alt-Shift-M",
         MIN_KEY = "Ctrl-Shift-M";
+
     // home grow format lib
     var formatter = require("lib/format-helper");
 
@@ -29,6 +33,8 @@ define(function (require, exports, module) {
     CommandManager.register("Auto Indent", INDENT_COMMAND_ID, autoIndent);
     CommandManager.register("Auto Format", FORMAT_COMMAND_ID, autoFormat);
     CommandManager.register("Auto Minify", MIN_COMMAND_ID, autoMin);
+    CommandManager.register("Pretty XML", PRETTY_XML_COMMAND_ID, prettyXml);
+    CommandManager.register("Pretty JSON", PRETTY_JSON_COMMAND_ID, prettyJson);
     //do indent for the file content
     function autoIndent() {
         modifyContent(supportedAction.INDENT);
@@ -105,6 +111,17 @@ define(function (require, exports, module) {
         }
     };
 
+    function prettyXml(){
+        var editor = EditorManager.getFocusedEditor();
+        var doc = editor._codeMirror;
+        doc.setValue(formatter.doFormat(doc.getValue(), {method:"xml"}));
+    }
+    function prettyJson(){
+        var editor = EditorManager.getFocusedEditor();
+        var doc = editor._codeMirror;
+        doc.setValue(formatter.doFormat(doc.getValue(), {method:"json"}));
+    }
+
     AppInit.appReady(function () {
         //bind the file change event so that we could add/remove the format/minify based on file extension.
         $(MainViewManager).on('currentFileChange', fileChangeHandler);
@@ -114,5 +131,9 @@ define(function (require, exports, module) {
     var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
     menu.addMenuItem(INDENT_COMMAND_ID, [{key: INDENT_KEY, platform: "win"},
                                          {key: INDENT_KEY, platform: "mac"}]);
+    menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
+                                             {key: PRETTY_XML_KEY, platform: "mac"}]);
+    menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
+                                             {key: PRETTY_JSON_KEY, platform: "mac"}]);
 
 });
