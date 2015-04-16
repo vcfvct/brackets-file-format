@@ -3,7 +3,7 @@ brackets-file-format
 
 This extension adds re-indent and auto-formatting function to certain file types Adobe Brackets.
 
-You can re-indent all file types by using "Edit > Auto Indent" menu or "Ctrl+Shift+I" key.
+You can re-indent all file types by using "Edit > Auto Indent" menu or "Ctrl+Shift+I" key. OR you can right click and select 'Auto Indent'.
 
 You can format `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Format" menu or "Ctrl+Shift+F" key.
 
