@@ -134,6 +134,10 @@ define(function (require, exports, module) {
     menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
                                              {key: PRETTY_XML_KEY, platform: "mac"}]);
     menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
-                                             {key: PRETTY_JSON_KEY, platform: "mac"}]);
+                                              {key: PRETTY_JSON_KEY, platform: "mac"}]);
+
+    //add auto indent also to the context menu(right click)
+    var contextMenu = Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU);
+    contextMenu.addMenuItem(INDENT_COMMAND_ID);
 
 });
