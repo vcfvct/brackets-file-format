@@ -27,3 +27,11 @@ Please download zip and extract into arbitrary directory (or clone source files)
 License
 ===
 This software is licensed under MIT license.
+
+Change log
+===
+v1.2.0
+added the auto indent to the context menu(right click).
+
+v1.1.0
+added Ctrl-Alt-Shift-B for pretty XML AND Ctrl-Alt-Shift-M for pretty Json. These key combination is the same as what we have in notepad++'s xml/json plugin.
