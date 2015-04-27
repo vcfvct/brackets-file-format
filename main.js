@@ -90,7 +90,7 @@ define(function (require, exports, module) {
                                                      {key: FORMAT_KEY, platform: "mac"}]);
                 menu.addMenuItem(MIN_COMMAND_ID, [{key: MIN_KEY, platform: "win"},
                                                   {key: MIN_KEY, platform: "mac"}]);
-            } 
+            }
         }
         else{
             var oldExt = FileUtils.getFileExtension(oldFile.fullPath);
@@ -107,6 +107,19 @@ define(function (require, exports, module) {
                                                      {key: FORMAT_KEY, platform: "mac"}]);
                 menu.addMenuItem(MIN_COMMAND_ID, [{key: MIN_KEY, platform: "win"},
                                                   {key: MIN_KEY, platform: "mac"}]);
+            }
+
+            if(newExt==='' && !Menus.getMenuItem(menu._getMenuItemId(PRETTY_XML_COMMAND_ID))){
+                menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
+                                                         {key: PRETTY_XML_KEY, platform: "mac"}]);
+                menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
+                                                          {key: PRETTY_JSON_KEY, platform: "mac"}]);
+            }
+            if(oldExt === '' && newExt !== ''){
+                menu.removeMenuItem(PRETTY_XML_COMMAND_ID);
+                menu.removeMenuItem(PRETTY_JSON_COMMAND_ID);
+                KeyBindingManager.removeBinding(PRETTY_XML_KEY);
+                KeyBindingManager.removeBinding(PRETTY_JSON_KEY);
             }
         }
     };
@@ -131,10 +144,10 @@ define(function (require, exports, module) {
     var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
     menu.addMenuItem(INDENT_COMMAND_ID, [{key: INDENT_KEY, platform: "win"},
                                          {key: INDENT_KEY, platform: "mac"}]);
-    menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
-                                             {key: PRETTY_XML_KEY, platform: "mac"}]);
-    menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
-                                              {key: PRETTY_JSON_KEY, platform: "mac"}]);
+//    menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
+//                                             {key: PRETTY_XML_KEY, platform: "mac"}]);
+//    menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
+//                                              {key: PRETTY_JSON_KEY, platform: "mac"}]);
 
     //add auto indent also to the context menu(right click)
     var contextMenu = Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU);

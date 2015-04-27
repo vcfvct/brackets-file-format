@@ -3,7 +3,7 @@
     "title": "Brackets File Format",
     "description": "Indent/Align for all file types. Format or Minify CSS / JSON / XML/ HTML / SQL file",
     "homepage": "https://github.com/vcfvct/brackets-file-format",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "author": "Han Li <vcfvct@gmail.com> (http://vcfvct.wordpress.com)",
     "license": "MIT",
     "engines": {

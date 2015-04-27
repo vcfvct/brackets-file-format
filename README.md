@@ -9,7 +9,7 @@ You can format `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Format
 
 You can minify `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Minify" menu or "Ctrl+Alt+M" key.
 
-If you do not want to save to xml/json file to format, use:
+If you do not want to save to xml/json file to format (i.e file without extension), use:
 
 Ctrl-Alt-Shift-B for pretty XML
 
