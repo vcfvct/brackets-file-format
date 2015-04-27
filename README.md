@@ -30,6 +30,9 @@ This software is licensed under MIT license.
 
 Change log
 ===
+V1.2.1 
+change the format hotkey to ctrl-alt-L so that it does not flush the system default key. also changed the minify to ctrl-alt-M for consistency.
+
 v1.2.0
 added the auto indent to the context menu(right click).
 
