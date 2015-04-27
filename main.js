@@ -17,10 +17,10 @@ define(function (require, exports, module) {
         PRETTY_JSON_COMMAND_ID      = "vcfvct.formatter.pretty.json",
 
         INDENT_KEY = "Ctrl-Shift-I",
-        FORMAT_KEY = "Ctrl-Shift-F",
+        FORMAT_KEY = "Ctrl-Alt-L",
         PRETTY_XML_KEY = "Ctrl-Alt-Shift-B",
         PRETTY_JSON_KEY = "Ctrl-Alt-Shift-M",
-        MIN_KEY = "Ctrl-Shift-M";
+        MIN_KEY = "Ctrl-Alt-M";
 
     // home grow format lib
     var formatter = require("lib/format-helper");

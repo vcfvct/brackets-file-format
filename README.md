@@ -5,9 +5,9 @@ This extension adds re-indent and auto-formatting function to certain file types
 
 You can re-indent all file types by using "Edit > Auto Indent" menu or "Ctrl+Shift+I" key. OR you can right click and select 'Auto Indent'.
 
-You can format `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Format" menu or "Ctrl+Shift+F" key.
+You can format `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Format" menu or "Ctrl+Alt+F" key.
 
-You can minify `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Minify" menu or "Ctrl+Shift+M" key.
+You can minify `XML/HTML`, `CSS`, `JSon`, and `SQL` files by "Edit > Auto Minify" menu or "Ctrl+Alt+M" key.
 
 If you do not want to save to xml/json file to format, use:
 
