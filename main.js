@@ -15,12 +15,17 @@ define(function (require, exports, module) {
         MIN_COMMAND_ID      = "vcfvct.formatter.min",
         PRETTY_XML_COMMAND_ID      = "vcfvct.formatter.pretty.xml",
         PRETTY_JSON_COMMAND_ID      = "vcfvct.formatter.pretty.json",
-
+        
         INDENT_KEY = "Ctrl-Shift-I",
+        INDENT_KEY_MAC = "Cmd-Shift-I",
         FORMAT_KEY = "Ctrl-Alt-L",
+        FORMAT_KEY_MAC = "Cmd-Alt-L",
         PRETTY_XML_KEY = "Ctrl-Alt-Shift-B",
+        PRETTY_XML_KEY_MAC = "Cmd-Alt-Shift-B",
         PRETTY_JSON_KEY = "Ctrl-Alt-Shift-M",
-        MIN_KEY = "Ctrl-Alt-M";
+        PRETTY_JSON_KEY_MAC = "Cmd-Alt-Shift-M",
+        MIN_KEY = "Ctrl-Alt-M",
+        MIN_KEY_MAC = "Cmd-Alt-M";
 
     // home grow format lib
     var formatter = require("lib/format-helper");
@@ -87,9 +92,9 @@ define(function (require, exports, module) {
         if(oldFile === null){
             if(supportedFile[newExt]){
                 menu.addMenuItem(FORMAT_COMMAND_ID, [{key: FORMAT_KEY, platform: "win"},
-                                                     {key: FORMAT_KEY, platform: "mac"}]);
+                                                     {key: FORMAT_KEY_MAC, platform: "mac"}]);
                 menu.addMenuItem(MIN_COMMAND_ID, [{key: MIN_KEY, platform: "win"},
-                                                  {key: MIN_KEY, platform: "mac"}]);
+                                                  {key: MIN_KEY_MAC, platform: "mac"}]);
             }
         }
         else{
@@ -99,27 +104,31 @@ define(function (require, exports, module) {
                 menu.removeMenuItem(FORMAT_COMMAND_ID);
                 menu.removeMenuItem(MIN_COMMAND_ID);
                 KeyBindingManager.removeBinding(FORMAT_KEY);
+                KeyBindingManager.removeBinding(FORMAT_KEY_MAC);
                 KeyBindingManager.removeBinding(MIN_KEY);
+                KeyBindingManager.removeBinding(MIN_KEY_MAC);
             }
             // if old file is not supported but new file is,  we add the menus.
             if(!supportedFile[oldExt] && supportedFile[newExt]){
                 menu.addMenuItem(FORMAT_COMMAND_ID, [{key: FORMAT_KEY, platform: "win"},
-                                                     {key: FORMAT_KEY, platform: "mac"}]);
+                                                     {key: FORMAT_KEY_MAC, platform: "mac"}]);
                 menu.addMenuItem(MIN_COMMAND_ID, [{key: MIN_KEY, platform: "win"},
-                                                  {key: MIN_KEY, platform: "mac"}]);
+                                                  {key: MIN_KEY_MAC, platform: "mac"}]);
             }
 
             if(newExt==='' && !Menus.getMenuItem(menu._getMenuItemId(PRETTY_XML_COMMAND_ID))){
                 menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
-                                                         {key: PRETTY_XML_KEY, platform: "mac"}]);
+                                                         {key: PRETTY_XML_KEY_MAC, platform: "mac"}]);
                 menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
-                                                          {key: PRETTY_JSON_KEY, platform: "mac"}]);
+                                                          {key: PRETTY_JSON_KEY_MAC, platform: "mac"}]);
             }
             if(oldExt === '' && newExt !== ''){
                 menu.removeMenuItem(PRETTY_XML_COMMAND_ID);
                 menu.removeMenuItem(PRETTY_JSON_COMMAND_ID);
                 KeyBindingManager.removeBinding(PRETTY_XML_KEY);
+                KeyBindingManager.removeBinding(PRETTY_XML_KEY_MAC);
                 KeyBindingManager.removeBinding(PRETTY_JSON_KEY);
+                KeyBindingManager.removeBinding(PRETTY_JSON_KEY_MAC);
             }
         }
     };
@@ -143,7 +152,7 @@ define(function (require, exports, module) {
     // bind indent command since it is for all file type;
     var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
     menu.addMenuItem(INDENT_COMMAND_ID, [{key: INDENT_KEY, platform: "win"},
-                                         {key: INDENT_KEY, platform: "mac"}]);
+                                         {key: INDENT_KEY_MAC, platform: "mac"}]);
 //    menu.addMenuItem(PRETTY_XML_COMMAND_ID, [{key: PRETTY_XML_KEY, platform: "win"},
 //                                             {key: PRETTY_XML_KEY, platform: "mac"}]);
 //    menu.addMenuItem(PRETTY_JSON_COMMAND_ID, [{key: PRETTY_JSON_KEY, platform: "win"},
